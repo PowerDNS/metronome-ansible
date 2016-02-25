@@ -1,0 +1,6 @@
+---
+metronome_carbon_address: "[::]:2003"
+metronome_webserver_address: "[::]:8000"
+metronome_local_js_scheme: 'http'
+metronome_local_js_address: "{{ ansible_default_ipv4['address'] }}"
+metronome_local_js_url: '/'
