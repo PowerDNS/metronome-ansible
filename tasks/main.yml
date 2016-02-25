@@ -1,0 +1,10 @@
+---
+- get_url:
+    dest="/tmp/metronome_{{ metronome_version }}_amd64.deb"
+    url="https://downloads.powerdns.com/metronome/metronome_{{ metronome_version }}_amd64.deb"
+    checksum={{metronome_checksum}}
+
+- apt: deb="/tmp/metronome_{{ metronome_version }}_amd64.deb"
+
+- name: Enable the metronome service
+  service: name=metronome state=started enabled=true
