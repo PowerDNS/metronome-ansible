@@ -1,23 +1,14 @@
 ---
-- name: Download metronome deb
-  get_url:
-    dest="/tmp/metronome_{{ metronome_version }}_amd64.deb"
-    url="https://downloads.powerdns.com/metronome/metronome_{{ metronome_version }}_amd64.deb"
-    checksum={{metronome_checksum}}
-  register: metronome_downloaded
+- include: "install.url-{{ansible_os_family}}.yml"
+  when: metronome_installation_source == "url"
 
-- name: Install metronome deb
-  apt: deb="/tmp/metronome_{{ metronome_version }}_amd64.deb"
-  when: metronome_downloaded.changed
+- include: "install.pkg-{{ansible_os_family}}.yml"
+  when: metronome_installation_source == "packages"
 
-- name: replace local.js
-  template: src=local.js.j2 dest=/usr/share/metronome/html/local.js
+- include: metronome-service.yml
 
-- name: Add unit-file with custom settings
-  template: src=metronome.service.j2 dest=/etc/systemd/system/metronome.service
-  notify:
-   - systemctl daemon-reload (metronome)
-   - restart metronome
+- include: local-js.yml
+  when: metronome_replace_local_js
 
 - name: Enable the metronome service
   service: name=metronome state=started enabled=true

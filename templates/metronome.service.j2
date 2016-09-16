@@ -1,2 +1,2 @@
 [Service]
-ExecStart=/usr/bin/metronome --daemon 0 --stats /var/lib/metronome --carbon-address '{{metronome_carbon_address}}' --webserver-address '{{metronome_webserver_address}}'
+ExecStart=/usr/bin/metronome --daemon 0 --stats /var/lib/metronome --carbon-address '{{metronome_carbon_address}}' --webserver-address '{{metronome_webserver_address}}' --stats-directory '{{metronome_storage_dir}}'

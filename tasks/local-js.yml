@@ -1,0 +1,2 @@
+- name: replace local.js
+  template: src=local.js.j2 dest=/usr/share/metronome/html/local.js

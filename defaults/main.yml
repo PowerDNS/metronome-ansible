@@ -1,6 +1,13 @@
 ---
+metronome_installation_source: "url"
+metronome_url_url: ""
+metronome_url_checksum: ""
+
 metronome_carbon_address: "[::]:2003"
 metronome_webserver_address: "[::]:8000"
+metronome_stats_directory: '/var/lib/metronome'
+
+metronome_replace_local_js: true
 metronome_local_js_scheme: 'http'
 metronome_local_js_address: "{{ ansible_default_ipv4['address'] }}"
 metronome_local_js_url: '/'

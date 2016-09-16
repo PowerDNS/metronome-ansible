@@ -1,0 +1,5 @@
+- name: Add unit-file with custom settings
+  template: src=metronome.service.j2 dest=/etc/systemd/system/metronome.service
+  notify:
+   - systemctl daemon-reload (metronome)
+   - restart metronome
