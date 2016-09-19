@@ -11,3 +11,6 @@ metronome_replace_local_js: true
 metronome_local_js_scheme: 'http'
 metronome_local_js_address: "{{ ansible_default_ipv4['address'] }}"
 metronome_local_js_url: '/'
+
+metronome_user: metronome
+metronome_group: metronome

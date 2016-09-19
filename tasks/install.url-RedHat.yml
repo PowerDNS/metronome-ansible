@@ -5,11 +5,18 @@
 
 - name: Download metronome rpm
   get_url:
-    dest="/var/cache/yum/{{metronome_pkg}}"
-    url="{{metronome_url_url}}"
-    checksum="{{metronome_url_checksum}}"
+    dest: "/var/cache/yum/{{metronome_pkg_name}}"
+    url: "{{metronome_url_url}}"
+    checksum: "{{metronome_url_checksum}}"
   register: metronome_download
 
+- name: Uninstall old metronome version
+  yum:
+    name: metronome
+    state: absent
+  when: metronome_download.changed
+  failed_when: False
+
 - name: Install metronome rpm
-  yum: name="/var/cache/apt/{{metronome_pkg}}" state=latest
-  when: metronome_downloaded.changed
+  yum: name="/var/cache/yum/{{metronome_pkg_name}}" state=present
+  when: metronome_download.changed
