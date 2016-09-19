@@ -1,0 +1,17 @@
+---
+galaxy_info:
+  author: Pieter Lexis
+  description: Metronome role
+  company: PowerDNS.COM BV
+  license: GPLv2
+  min_ansible_version: 2.0
+  platforms:
+  - name: EL
+    versions:
+    - 7
+  - name: Debian
+    versions:
+    - jessie
+  galaxy_tags:
+    - system
+dependencies: []
