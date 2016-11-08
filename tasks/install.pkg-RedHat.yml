@@ -1,0 +1,5 @@
+---
+- name: Install metronome
+  yum:
+    name: metronome
+    state: latest

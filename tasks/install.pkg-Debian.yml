@@ -1,0 +1,5 @@
+---
+- name: Install metronome
+  apt:
+    name: metronome
+    state: latest
