@@ -1,9 +1,4 @@
-[Unit]
-Description=Metronome
-After=network-online.target
-
 [Service]
-Type=notify
 ExecStart=/usr/bin/metronome \
   --daemon 0 \
   --disable-syslog \
@@ -13,6 +8,3 @@ ExecStart=/usr/bin/metronome \
 
 User={{metronome_user}}
 Group={{metronome_user}}
-
-[Install]
-WantedBy=multi-user.target
