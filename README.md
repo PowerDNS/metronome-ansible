@@ -23,7 +23,7 @@ metronome_yum_repo: ""     # Metronome YUM repository URL
 
 If `metronome_configure_repo` is True, the role will add the metronome repository to the system.
 The `metronome_apt_repo` and `metronome_yum_repo` variables should contain the URL of the repository according to the target operating system.
-The specification of the GPG key through the `metronome_gpg_key_url` and `metronome_gpg_key_id` variables, althought recommended, is not mandatory.
+The specification of the GPG key through the `metronome_gpg_key_url` and `metronome_gpg_key_id` variables, although recommended, is not mandatory.
 
 ```
 metronome_user: "metronome"
