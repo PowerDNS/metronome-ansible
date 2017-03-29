@@ -1,6 +1,9 @@
 ---
+
 - name: restart metronome
-  service: name=metronome state=restarted
+  service:
+    name=metronome
+    state=restarted
 
 - name: systemctl daemon-reload (metronome)
   command: systemctl daemon-reload

@@ -1,0 +1,14 @@
+---
+
+- name: Import the metronome APT repository key
+  apt_key:
+    url: "{{ metronome_gpg_key_url }}"
+    id: "{{ metronome_gpg_key_id | default('') }}"
+    state: present
+  when: metronome_gpg_key_url != ""
+
+- name: Add the metronome APT repository
+  apt_repository:
+    repo: "{{ metronome_apt_repo }}"
+    state: present
+

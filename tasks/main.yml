@@ -1,14 +1,32 @@
 ---
-- include: "install.url-{{ansible_os_family}}.yml"
-  when: metronome_installation_source == "url"
 
-- include: "install.pkg-{{ansible_os_family}}.yml"
-  when: metronome_installation_source == "packages"
+###
+# Metronome Repository
+###
 
-- include: metronome-service.yml
+- include: "repo-{{ ansible_os_family }}.yml"
+  when: metronome_configure_repo
+  tags:
+    - install
+    - repository
 
-- include: local-js.yml
-  when: metronome_replace_local_js
+###
+# Metronome Setup
+###
 
-- name: Enable the metronome service
-  service: name=metronome state=started enabled=true
+- name: Install metronome
+  package:
+    name: metronome
+    state: present 
+  tags:
+    - install
+
+- include: configure.yml
+
+- name: Start and enable the Metronome service
+  service:
+    name: metronome
+    state: started
+    enabled: true
+  tags:
+    - service

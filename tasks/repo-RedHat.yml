@@ -1,0 +1,16 @@
+---
+
+- name: Install yum-plugin-priorities
+  package:
+    name: yum-plugin-priorities
+    state: present
+
+- name: Add the metronome YUM repository
+  yum_repository:
+    name: metronome 
+    description: Metronome Repository
+    baseurl: "{{ metronome_yum_repo }}"
+    gpgkey: "{{ metronome_gpg_key_url }}"
+    gpgcheck: "{{ metronome_gpg_key_url != '' }}"
+    priority: 90
+    state: present
