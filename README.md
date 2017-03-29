@@ -23,7 +23,7 @@ metronome_yum_repo: ""     # Metronome YUM repository URL
 
 If `metronome_configure_repo` is True, the role will add the metronome repository to the system.
 The `metronome_apt_repo` and `metronome_yum_repo` variables should contain the URL of the repository according to the target operating system.
-The specification of the GPG key through the `metronome_gpg_key_url` and `metronome_gpg_key_id` variables, altought recommended, is not mandatory.
+The specification of the GPG key through the `metronome_gpg_key_url` and `metronome_gpg_key_id` variables, althought recommended, is not mandatory.
 
 ```
 metronome_user: "metronome"
@@ -48,7 +48,7 @@ The listen address for the embedded web-server.
 metronome_stats_directory: '/var/lib/metronome'
 ```
 
-The directory in which metronome will store the collected stats file.
+The directory in which metronome will store the collected stats files.
 
 ```
 metronome_replace_local_js: True
@@ -57,9 +57,8 @@ metronome_local_js_address: "{{ ansible_default_ipv4['address'] }}"
 metronome_local_js_url: '/'
 ```
 
-If `metronome_replace_local_js` is set to True, the role will override the default metronome `local_js` in order to make
+If `metronome_replace_local_js` is set to True, the role will override the default metronome `local.js` in order to make
 the metronome UI connect to the metronome instance available at `metronome_local_js_address` via `metronome_local_js_scheme`.
-
 
 License
 -------
