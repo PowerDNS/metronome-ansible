@@ -2,9 +2,9 @@
 ExecStart=/usr/bin/metronome \
   --daemon 0 \
   --disable-syslog \
-  --carbon-address '{{metronome_carbon_address}}' \
-  --webserver-address '{{metronome_webserver_address}}' \
-  --stats-directory '{{metronome_stats_directory}}'
+  --carbon-address '{{ metronome_carbon_address }}' \
+  --webserver-address '{{ metronome_webserver_address }}' \
+  --stats-directory '{{ metronome_stats_directory }}'
 
-User={{metronome_user}}
-Group={{metronome_user}}
+User={{ metronome_user }}
+Group={{ metronome_group }}

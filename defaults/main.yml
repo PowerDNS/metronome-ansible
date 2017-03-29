@@ -1,16 +1,27 @@
 ---
-metronome_installation_source: "url"
-metronome_url_url: ""
-metronome_url_checksum: ""
+
+###
+# Metronome Repository
+###
+
+metronome_configure_repo: False
+metronome_apt_repo: ""     # Metronome APT repository URL
+metronome_gpg_key_url: ""  # Metronome GPG key URL
+metronome_gpg_key_id: ""   # Metronome GPG key ID
+metronome_yum_repo: ""     # Metronome YUM repository URL
+
+###
+# Metronome Configuration
+###
+
+metronome_user: "metronome"
+metronome_group: "metronome"
 
 metronome_carbon_address: "[::]:2003"
 metronome_webserver_address: "[::]:8000"
 metronome_stats_directory: '/var/lib/metronome'
 
-metronome_replace_local_js: true
+metronome_replace_local_js: True
 metronome_local_js_scheme: 'http'
 metronome_local_js_address: "{{ ansible_default_ipv4['address'] }}"
 metronome_local_js_url: '/'
-
-metronome_user: metronome
-metronome_group: metronome
