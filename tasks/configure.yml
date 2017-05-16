@@ -8,17 +8,17 @@
 
   - name: Add override directory for metronome.service
     file:
-      name: /etc/systemd/systemd/metronome.service.d
+      name: /etc/systemd/system/metronome.service.d
       state: directory
 
   - name: Add unit-file with custom settings
     template:
       src: metronome.service.j2
-      dest: /etc/systemd/systemd/metronome.service.d/override.conf
+      dest: /etc/systemd/system/metronome.service.d/override.conf
     notify:
       - systemctl daemon-reload (metronome)
       - restart metronome
-      
+
   when: ansible_service_mgr == "systemd"
 
 - block:
@@ -29,7 +29,7 @@
       dest: /etc/default/metronome
     notify:
       - restart metronome
-      
+
   when: ansible_service_mgr != "systemd"
 
 ###
@@ -37,7 +37,7 @@
 ###
 
 - name: Replace local.js file
-  template: 
-    src: local.js.j2 
+  template:
+    src: local.js.j2
     dest: /usr/share/metronome/html/local.js
   when: metronome_replace_local_js
