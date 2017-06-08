@@ -5,7 +5,7 @@
 ###
 
 - include: "repo-{{ ansible_os_family }}.yml"
-  when: metronome_configure_repo
+  when: metronome_install_repo != ""
   tags:
     - install
     - repository

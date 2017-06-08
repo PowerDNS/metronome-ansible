@@ -7,10 +7,10 @@
 
 - name: Add the metronome YUM repository
   yum_repository:
-    name: metronome 
-    description: Metronome Repository
-    baseurl: "{{ metronome_yum_repo }}"
-    gpgkey: "{{ metronome_gpg_key_url }}"
-    gpgcheck: "{{ metronome_gpg_key_url != '' }}"
+    name: "{{ metronome_install_repo['yum_repo_name'] }}"
+    description: PowerDNS Metronome Repository
+    baseurl: "{{ metronome_install_repo['yum_repo_baseurl'] }}"
+    gpgkey: "{{ metronome_install_repo['gpg_key'] }}"
+    gpgcheck: "{{ metronome_install_repo['gpg_key'] != '' }}"
     priority: 90
     state: present

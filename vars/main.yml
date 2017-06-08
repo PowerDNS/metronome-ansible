@@ -1,0 +1,8 @@
+---
+
+metronome_powerdns_repo_master:
+  apt_repo: "deb [arch=amd64] http://repo.powerdns.com/{{ ansible_distribution | lower }} {{ ansible_distribution_release | lower }}-metronome main"
+  gpg_key: "http://repo.powerdns.com/CBC8B383-pub.asc"
+  gpg_key_id: "D47975F8DAE32700A563E64FFF389421CBC8B383"
+  yum_repo_baseurl: "http://repo.powerdns.com/centos/$basearch/$releasever/metronome"
+  yum_repo_name: "metronome"
