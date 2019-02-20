@@ -4,13 +4,27 @@
   package:
     name: yum-plugin-priorities
     state: present
+  when: ansible_distribution in [ 'CentOS' ]
 
-- name: Add the metronome YUM repository
+- name: Add the Metronome YUM repository
   yum_repository:
-    name: "{{ metronome_install_repo['yum_repo_name'] }}"
-    description: PowerDNS Metronome Repository
+    name: "{{ metronome_install_repo['name'] }}"
+    file: "{{ pdns_rec_install_repo['name'] }}"
+    description: PowerDNS Metronome
     baseurl: "{{ metronome_install_repo['yum_repo_baseurl'] }}"
     gpgkey: "{{ metronome_install_repo['gpg_key'] }}"
     gpgcheck: "{{ metronome_install_repo['gpg_key'] != '' }}"
     priority: 90
     state: present
+
+- name: Add the Metronome debug symbols YUM repository
+  yum_repository:
+    name: "{{ metronome_install_repo['name'] }}-debuginfo"
+    file: "{{ pdns_rec_install_repo['name'] }}"
+    description: PowerDNS Metronome - debug symbols
+    baseurl: "{{ metronome_install_repo['yum_repo_baseurl'] }}"
+    gpgkey: "{{ metronome_install_repo['gpg_key'] }}"
+    gpgcheck: "{{ metronome_install_repo['gpg_key'] != '' }}"
+    priority: 90
+    state: present
+  when: metronome_install_debug_symbols_package
