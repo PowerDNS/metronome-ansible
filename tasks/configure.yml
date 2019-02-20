@@ -15,9 +15,7 @@
     template:
       src: metronome.service.j2
       dest: /etc/systemd/system/metronome.service.d/override.conf
-    notify:
-      - systemctl daemon-reload (metronome)
-      - restart metronome
+    notify: reload systemd and restart metronome
 
   when: ansible_service_mgr == "systemd"
 
@@ -27,8 +25,7 @@
     template:
       src: metronome.default.j2
       dest: /etc/default/metronome
-    notify:
-      - restart metronome
+    notify: restart metronome
 
   when: ansible_service_mgr != "systemd"
 

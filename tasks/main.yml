@@ -1,5 +1,10 @@
 ---
 
+- name: Include OS-specific variables
+  include_vars: "{{ ansible_os_family }}.yml"
+  tags:
+    - always
+
 ###
 # Metronome Repository
 ###
@@ -18,6 +23,14 @@
   package:
     name: metronome
     state: present
+  tags:
+    - install
+
+- name: Install Metronome debug symbols
+  package:
+    name: "{{ _metronome_debug_symbols_package_name }}"
+    state: present
+  when: metronome_install_debug_symbols_package
   tags:
     - install
 
