@@ -2,17 +2,29 @@
 
 galaxy_info:
   author: PowerDNS Engineering Team
-  description: Metronome role
+  description: Install and configure Metronome
   company: PowerDNS.COM BV
   license: MIT
-  min_ansible_version: 2.0
+  min_ansible_version: 2.2
   platforms:
-  - name: EL
-    versions:
-    - 7
-  - name: Debian
-    versions:
-    - jessie
+    - name: EL
+      versions:
+        - 7
+        - 6
+    - name: Debian
+      versions:
+        - jessie
+        - stretch
+    - name: Ubuntu
+      versions:
+        - trusty
+        - utopic
+        - vivid
+        - wily
+        - xenial
+        - bionic
   galaxy_tags:
     - system
-dependencies: []
+    - metronome
+    - monitoring
+    - carbon

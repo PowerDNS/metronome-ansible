@@ -46,3 +46,8 @@ metronome_replace_local_js: True
 metronome_local_js_scheme: 'http'
 metronome_local_js_address: "{{ ansible_default_ipv4['address'] }}"
 metronome_local_js_url: '/'
+
+# Dict with overrides for the service (systemd only)
+metronome_service_overrides: {}
+# metronome_service_overrides:
+#   LimitNOFILE: 10000
