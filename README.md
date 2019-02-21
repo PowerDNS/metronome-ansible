@@ -1,21 +1,27 @@
-Metronome Ansible Role
-======================
+# Ansible Role: Metronome
 
 An Ansible role to install and configure [Metronome](https://github.com/ahupowerdns/metronome).
 
-Requirements
-------------
+[![Build Status](https://travis-ci.org/PowerDNS/metronome-ansible.svg?branch=master)](https://travis-ci.org/PowerDNS/metronome-ansible)
+[![License](https://img.shields.io/badge/license-MIT%20License-brightgreen.svg)](https://opensource.org/licenses/MIT)
+[![Ansible Role](https://img.shields.io/badge/ansible%20role-PowerDNS.metronome-blue.svg)](https://galaxy.ansible.com/PowerDNS/metronome)
+[![GitHub tag](https://img.shields.io/github/tag/PowerDNS/metronome-ansible.svg)](https://github.com/PowerDNS/metronome-ansible/tags)
+
+## Requirements
+
+An Ansible 2.2 or higher installation.
+
+## Dependencies
 
 None.
 
-Role Variables
---------------
+## Role Variables
 
 Available variables are listed below, along with default values (see defaults/main.yml):
 
-    metronome_install_repo: "{{ metronome_powerdns_repo_master }}"
+    metronome_install_repo: ""
 
-By default Metronome is installed from the repositories available on the host.
+By default, Metronome is installed from the repositories available on the host.
 
     metronome_install_repo: "{{ metronome_powerdns_repo_master }}"
 
@@ -55,7 +61,24 @@ the metronome UI connect to the metronome instance available at `metronome_local
 Dict with overrides for the service (systemd only).
 This can be used to change any systemd settings in the `[Service]` category
 
-License
--------
+## Changelog
+
+A detailed changelog of all the changes applied to the role is available [here](./CHANGELOG.md).
+
+## Testing
+
+Tests are performed by [Molecule](http://molecule.readthedocs.org/en/latest/).
+
+    $ pip install tox
+
+To test all the scenarios run
+
+    $ tox
+
+To run a custom molecule command
+
+    $ tox -e py27-ansible22 -- molecule test -s metronome-master
+
+## License
 
 MIT
