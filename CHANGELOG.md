@@ -1,4 +1,4 @@
-## v1.0.0 (Unreleased)
+## v1.0.0 (2019-02-21)
 
 __BREAKING CHANGES__:
 - Do not configure the `metronome-master` repository by default ([\#4](https://github.com/PowerDNS/metronome-ansible/pull/4))
