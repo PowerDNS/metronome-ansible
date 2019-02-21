@@ -21,11 +21,11 @@
 
 - block:
 
-  - name: Add defaults-file with settings
-    template:
-      src: metronome.default.j2
-      dest: /etc/default/metronome
-    notify: restart metronome
+    - name: Add defaults-file with settings
+      template:
+        src: metronome.default.j2
+        dest: /etc/default/metronome
+      notify: restart metronome
 
   when: ansible_service_mgr != "systemd"
 

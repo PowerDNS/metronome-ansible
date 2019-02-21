@@ -1,0 +1,7 @@
+---
+
+##
+# Metronome Master Repository
+##
+
+metronome_install_repo: "{{ metronome_powerdns_repo_master }}"

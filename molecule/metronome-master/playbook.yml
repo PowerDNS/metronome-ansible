@@ -1,0 +1,8 @@
+---
+
+- hosts: metronome
+  vars_files:
+    - ../resources/vars/metronome-common.yml
+    - ../resources/vars/metronome-repo-master.yml
+  roles:
+    - { role: metronome-ansible }

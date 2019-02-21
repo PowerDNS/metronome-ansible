@@ -9,7 +9,7 @@
 - name: Add the Metronome YUM repository
   yum_repository:
     name: "{{ metronome_install_repo['name'] }}"
-    file: "{{ pdns_rec_install_repo['name'] }}"
+    file: "{{ metronome_install_repo['name'] }}"
     description: PowerDNS Metronome
     baseurl: "{{ metronome_install_repo['yum_repo_baseurl'] }}"
     gpgkey: "{{ metronome_install_repo['gpg_key'] }}"

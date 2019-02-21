@@ -9,3 +9,8 @@ ExecStart=/usr/bin/metronome \
   --stats-directory '{{ metronome_stats_directory }}'
 User={{ metronome_user }}
 Group={{ metronome_group }}
+
+[Service]
+{% for k, v in metronome_service_overrides.items() %}
+{{ k }}={{ v }}
+{% endfor %}

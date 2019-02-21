@@ -1,0 +1,29 @@
+---
+
+language: python
+python: 2.7
+
+sudo: required
+
+# Enable the docker service
+services:
+  - docker
+
+# Parallel testing of the supported
+# Ansible versions
+env:
+  matrix:
+    - ANSIBLE=2.5
+    - ANSIBLE=2.6
+    - ANSIBLE=2.7
+
+# Install tox
+install:
+  - pip install tox-travis
+
+# Test against the latest master release of Molecule
+script:
+  - tox -- molecule test -s metronome-master
+
+notifications:
+  webhooks: https://galaxy.ansible.com/api/v1/notifications/

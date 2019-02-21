@@ -50,6 +50,11 @@ The directory in which metronome will store the collected stats files.
 If `metronome_replace_local_js` is set to True, the role will override the default metronome `local.js` in order to make
 the metronome UI connect to the metronome instance available at `metronome_local_js_address` via `metronome_local_js_scheme`.
 
+    metronome_service_overrides: {}
+
+Dict with overrides for the service (systemd only).
+This can be used to change any systemd settings in the `[Service]` category
+
 License
 -------
 

@@ -1,0 +1,8 @@
+---
+
+##
+# Metronome Configuration
+##
+
+metronome_service_overrides:
+  LimitCORE: infinity
