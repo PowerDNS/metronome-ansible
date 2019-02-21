@@ -15,24 +15,15 @@ Available variables are listed below, along with default values (see defaults/ma
 
     metronome_install_repo: "{{ metronome_powerdns_repo_master }}"
 
-By default Metronome is installed from the master repository.
-To install Metronome from a custom repository, override the `metronome_install_repo` default value in your playbook
-as shown below
+By default Metronome is installed from the repositories available on the host.
 
-    - hosts: all
-      vars:
-        metronome_install_repo:
-          apt_repo: "deb http://my.repo.com/{{ ansible_distribution | lower }} {{ ansible_distribution_release | lower }}/metronome main"
-          gpg_key: "http://my.repo.com/MYREPOGPGPUBKEY.asc" # repository's public GPG key
-          gpg_key_id: "MYREPOGPGPUBKEYID"                   # to avoid to reimport the key each time the role is executed
-          yum_repo_baseurl: "http://my.repo.com/centos/$basearch/$releasever/metronome"
-          yum_repo_name: "metronome"
-      roles:
-        - { role: PowerDNS.metronome }
+    metronome_install_repo: "{{ metronome_powerdns_repo_master }}"
 
-If `metronome_configure_repo` is True, the role will add the metronome repository to the system.
-The `metronome_apt_repo` and `metronome_yum_repo` variables should contain the URL of the repository according to the target operating system.
-The specification of the GPG key through the `metronome_gpg_key_url` and `metronome_gpg_key_id` variables, although recommended, is not mandatory.
+Master build of Metronome can be installed setting the `metronome_install_repo` variable as shown above.
+
+    metronome_install_debug_symbols_package: False
+
+Install Metronome symbols package
 
     metronome_user: "metronome"
     metronome_group: "metronome"
