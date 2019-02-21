@@ -1,6 +1,7 @@
 ---
 
 galaxy_info:
+  role_name: metronome
   author: PowerDNS Engineering Team
   description: Install and configure Metronome
   company: PowerDNS.COM BV
