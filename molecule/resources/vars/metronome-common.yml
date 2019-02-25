@@ -4,5 +4,13 @@
 # Metronome Configuration
 ##
 
+# Override the systemd unit
 metronome_service_overrides:
   LimitCORE: infinity
+
+# Enable the cleanup cronjob
+metronome_cleanup_job_enabled: True
+metronome_cleanup_job_retention: "5"
+metronome_cleanup_job_weekday: "*"
+metronome_cleanup_job_hour: "2"
+metronome_cleanup_job_minute: "15"
