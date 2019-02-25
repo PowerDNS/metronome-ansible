@@ -1,3 +1,8 @@
+## v1.0.1 (Unreleased)
+
+NEW FEATURES:
+- Allow to configure a cronjob to cleanup old Metronome data ([\#5](https://github.com/PowerDNS/metronome-ansible/pull/5))
+
 ## v1.0.0 (2019-02-21)
 
 __BREAKING CHANGES__:

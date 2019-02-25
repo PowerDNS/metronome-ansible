@@ -1,0 +1,17 @@
+---
+
+- name: Prepare the Molecule Test Resources
+  hosts: all
+  tasks:
+    # Install cron to test the Metronome data-dir cleanup cronjob
+    - name: Install cron on Debian
+      package:
+        name: cron
+        state: present
+      when: ansible_os_family in [ "Debian" ]
+
+    - name: Install cronie on RedHat
+      package:
+        name: cronie
+        state: present
+      when: ansible_os_family in [ "RedHat" ]

@@ -38,3 +38,17 @@
     src: local.js.j2
     dest: /usr/share/metronome/html/local.js
   when: metronome_replace_local_js
+
+###
+# Cleanup Cronjob
+###
+
+- name: Configure the clean-up cronjob script
+  cron:
+    name: "metronome: clean-up old data"
+    job: "find {{ metronome_stats_directory }}/ -mtime +{{ metronome_cleanup_job_retention }} -delete"
+    user: "root"
+    weekday: "{{ metronome_cleanup_job_weekday }}"
+    hour: "{{ metronome_cleanup_job_hour }}"
+    minute: "{{ metronome_cleanup_job_minute }}"
+  when: metronome_cleanup_job_enabled

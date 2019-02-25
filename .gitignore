@@ -1,26 +1,15 @@
+### Ansible ###
+*.retry
 
-# Created by https://www.gitignore.io/api/vim,linux
+### Python ###
+# Byte-compiled / optimized / DLL files
+.pytest_cache/
+__pycache__/
+*.py[cod]
+*$py.class
 
-### Vim ###
-# swap
-[._]*.s[a-w][a-z]
-[._]s[a-w][a-z]
-# session
-Session.vim
-# temporary
-.netrwhist
-*~
-
-
-### Linux ###
-*~
-
-# temporary files which can be created if a process still has a handle open of a deleted file
-.fuse_hidden*
-
-# KDE directory preferences
-.directory
-
-# Linux trash folder which might appear on any partition or disk
-.Trash-*
-
+### Molecule ###
+.tox
+.cache
+.molecule
+.vagrant

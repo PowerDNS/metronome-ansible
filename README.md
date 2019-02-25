@@ -61,6 +61,21 @@ the metronome UI connect to the metronome instance available at `metronome_local
 Dict with overrides for the service (systemd only).
 This can be used to change any systemd settings in the `[Service]` category
 
+    metronome_cleanup_job_enabled: False
+
+When True, configure a cronjob to cleanup old Metronome data.
+
+    metronome_cleanup_job_retention: "30"
+
+Retention in days of the Metronome data.
+Files older than the specified value will be deleted by the cleanup cronjob.
+
+    metronome_cleanup_job_weekday: "*"
+    metronome_cleanup_job_hour: "1"
+    metronome_cleanup_job_minute: "30"
+
+Schedule of the cronjon to cleanup old Metronome data.
+
 ## Changelog
 
 A detailed changelog of all the changes applied to the role is available [here](./CHANGELOG.md).

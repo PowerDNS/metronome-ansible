@@ -51,3 +51,10 @@ metronome_local_js_url: '/'
 metronome_service_overrides: {}
 # metronome_service_overrides:
 #   LimitNOFILE: 10000
+
+# Configuration of the jon to cleanup old Metronome data
+metronome_cleanup_job_enabled: False
+metronome_cleanup_job_retention: "30"
+metronome_cleanup_job_weekday: "*"
+metronome_cleanup_job_hour: "1"
+metronome_cleanup_job_minute: "30"
